@@ -1,0 +1,5 @@
+create postgress 9.6.1
+name a volume
+create another postgress now in 9.6.2
+see logs in bot
+
