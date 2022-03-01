@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: example
+    restart: always
+
+  drupal: 
+    image: drupal:8-apache
+    ports:
+      - 8080:80
+    volumes:
+      - dp-m:/var/www/html/modules
+      - dp-p:/var/www/html/profiles
+      - dp-t:/var/www/html/themes
+      - dp-s:/var/www/html/sites
+    restart: always
+    depends_on: 
+      - postgres
+
+volumes:
+  dp-m:
+  dp-p:
+  dp-t:
+  dp-s:
